@@ -1,0 +1,28 @@
+body {
+    background-color: #eeedec;
+    letter-spacing: 0.2em;
+    font-size: 0.8em;
+}
+
+.container {
+    max-width: 400px;
+}
+
+.card {
+    background: #f7c59f;
+    /* background: ; */
+    /* color: #; */
+}
+
+.head {
+    color: #f7ede2;
+}
+
+.icon {
+    position: relative;
+    top: -50px;
+    border-radius: 50%;
+    width: 100px;
+    margin-bottom: -50px;
+    padding: 10px;
+}
