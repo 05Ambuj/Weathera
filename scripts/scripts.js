@@ -5,8 +5,8 @@ const time = document.querySelector("img.time");
 const icon = document.querySelector(".icon img");
 const bg = document.querySelector("body");
 const head = document.querySelector("h1");
-
 const updateUI = (data) => {
+  console.log(data);
   const weather = data.weather;
   // update details template
 
@@ -16,11 +16,21 @@ const updateUI = (data) => {
   details.innerHTML = `
   <h5 class="my-3">${weather.name}</h5>
     <h5 class="my-3">${regionNamesInEnglish.of(weather.sys.country)}</h5>
-    <div class="my-3">${weather.weather[0].description}</div>
-      <div class="display-4 my-4">
-        <span>${weather.main.temp}</span>
-        <span>&deg;C</span>
-      </div>
+    <div class="display-6 my-3">
+    <span>${weather.main.temp}</span>
+    <span>&deg;C</span>
+    </div>
+    <div class="my-2 text-black">${weather.weather[0].description}</div>
+    <div class="display-7">
+      <span>Humidity:</span>
+      <span>${weather.main.humidity}</span>
+      <span>%</span>
+    </div>
+    <div class="display-7">
+      <span>Wind Speed:</span>
+      <span>${weather.wind.speed}</span>
+      <span>km/h</span>
+    </div>
   `;
 
   // INSERT BACKGROUND
@@ -29,9 +39,13 @@ const updateUI = (data) => {
   if (weather.weather[0].icon.includes("n")) {
     back = "imgs/nightbg.jpg";
     head.classList.remove("text-muted");
+    cityForm.classList.remove("text-muted");
     head.classList.add("head");
+    cityForm.classList.add("head");
   } else {
     back = "imgs/daybg2.jpg";
+    cityForm.classList.remove("text-muted");
+    cityForm.classList.add("head");
     head.classList.add("text-muted");
     head.classList.remove("head");
   }
